@@ -47,5 +47,15 @@
     {
       this.view.SetTaskList(this.tasks);
     }
+
+    /// <summary>
+    /// Adds a task with the given description to the list
+    /// </summary>
+    /// <param name="description">A string description of the task</param>
+    public void add(string description)
+    {
+      this.tasks.Add(new Task(description));
+      this.view.SetTaskList(this.tasks);
+    }
   }
 }

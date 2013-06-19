@@ -41,6 +41,25 @@
       composer.Initialize();
       mockView.Verify(m => m.SetTaskList(It.IsAny<List<Task>>()), Times.Once());
     }
+
+    [Test]
+    public void Test_Adding_Valid_Description_Increases_The_Task_List_Length_By_One()
+    {
+      var mockView = new Mock<ITaskListComposerView>();
+      var composer = new TaskListComposer(mockView.Object);
+      composer.add("Learn C#");
+      Assert.AreEqual(1, composer.NumberOfTasks);
+    }
+
+    [Test]
+    public void Test_Adding_Invalid_Description_Throws_And_Leaves_List_Length_Unchanged()
+    {
+      var mockView = new Mock<ITaskListComposerView>();
+      var composer = new TaskListComposer(mockView.Object);
+    
+      Assert.Throws<ArgumentException>(() => composer.add(""));
+      Assert.AreEqual(0, composer.NumberOfTasks);
+    }
   }
 }
 
