@@ -1,8 +1,10 @@
-﻿<Window x:Class="Tasks.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        xmlns:local="clr-namespace:Tasks" x:Name="Tasks" x:Class="Tasks.MainWindow"
+        Title="Tasks" Height="500" Width="600         " Background="#FCF1FAFF" WindowStyle="ThreeDBorderWindow">
+    <Grid Margin="10,30,0,0">
+        <local:TaskListComposerView x:Name="TaskListView"/>
+        <Label Content="To Do" HorizontalAlignment="Left" Margin="0,-26,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.071,0.166"/>
     </Grid>
 </Window>
